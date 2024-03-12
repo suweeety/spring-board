@@ -1,9 +1,22 @@
 package org.zerock.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 
 public interface ReplyMapper {
-	//xml과 연동해서 sql 처리
-	
-	public int insert(ReplyVO vo); //vo객체를 받아 insert 처리용 인스턴스 생성
+
+	public int insert(ReplyVO vo);
+
+	public ReplyVO read(Long bno);
+
+	public int delete(Long bno);
+
+	public int update(ReplyVO reply);
+
+	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cri, @Param("bno") Long bno);
+
+	public int getCountByBno(Long bno);
 }
